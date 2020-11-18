@@ -4,6 +4,25 @@ For general installation instructions, please refer to [Dortania's OpenCore Inst
 
 ## Notes
 
+### Fix CFG Lock
+
+If you have gone through the [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/) carefullly enough, you may find that of all the [BIOS settings](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake.html#intel-bios-settings), disabling `CFG Lock` is particularly frustrating, since no GUI configuring option is provided.
+
+In order to fix this issue, you will need to first:
+
+1. Download `Utils/modGRUBShell.efi` (or from [datasone/grub-mod-setup_var](https://github.com/datasone/grub-mod-setup_var/releases/grub-mod-setup_var)) and move it to `EFI/BOOT`;
+2. Restart the computer, press `F2` to go to the BIOS settings and choose to boot with `EFI/BOOT/modGRUBShell.efi`.
+
+Note that normally we boot with `EFI/BOOT/BOOTx64.efi`， you may want to revert to the original state when `CFG Lock` got fixed.
+
+By now you should find yourself in an interactive shell. You can run the following commands:
+
+- `setup_var 0x5C3` to check `CFG Lock`: 0x00 means disabled, 0x01 means enabled;
+- `setup_var 0x5C3 0x00` to disable `CFG Lock`;
+- `setup_var 0x5C3 0x01` to enable  `CFG Lock` in case you want it back.
+
+Then you are good to go.
+
 ### Fix headphone audio distortion
 
 If you experience audio distortion when plugging in your headphone, please
@@ -17,6 +36,4 @@ Every time you log in from now on, the application will be automatically execute
 /usr/local/bin/hda-verb 0x19 SET_PIN_WIDGET_CONTROL 0x25
 /usr/local/bin/hda-verb 0x21 SET_UNSOLICITED_ENABLE 0x83
 ```
-
-
 
