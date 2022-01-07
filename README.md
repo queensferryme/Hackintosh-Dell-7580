@@ -1,5 +1,7 @@
 # Hackintosh-Dell-7580
 
+> **Only** compatible with macOS **Monterey**.
+
 For general installation instructions, please refer to [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/). This project could not be possible without the help of [ppjjhh/Hackintosh-Dell-Inspiron-7580](https://github.com/ppjjhh/Hackintosh-Dell-Inspiron-7580), which unfortunately is not longer maintained.
 
 ## Notes
