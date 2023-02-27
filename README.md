@@ -1,3 +1,5 @@
+> ⚠️ This repository is now archived and no longer maintained!
+
 # Hackintosh-Dell-7580
 
 > **Only** compatible with macOS **Monterey**.
